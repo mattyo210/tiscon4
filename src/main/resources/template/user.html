@@ -109,7 +109,7 @@
                                 <td>
                                     <p>例：1990/01/01</p>
                                     <div class="field" th:classappend="${errors.hasError('dateOfBirth')} ? 'error'">
-                                        <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
+                                        <input type="date" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
                                         <p th:if="${errors.hasError('dateOfBirth')}"
                                            th:text="${errors.getMessage('dateOfBirth')}" class="error-message">
                                         </p>
