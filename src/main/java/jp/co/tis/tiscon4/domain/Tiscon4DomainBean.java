@@ -15,6 +15,8 @@ import nablarch.core.validation.ee.Digits;
 import nablarch.core.validation.ee.Length;
 import nablarch.core.validation.ee.SystemChar;
 
+import javax.validation.constraints.Pattern;
+
 /**
  * ドメイン定義。
  */
@@ -44,7 +46,7 @@ public class Tiscon4DomainBean {
     private String gender;
 
     /** 生年月日 */
-    @YYYYMMDD()
+    @Pattern(regexp = "^[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}$", message = "{nablarch.core.validation.ee.dateOfBirth.message}")
     private String dateOfBirth;
 
     /** 郵便番号 */
