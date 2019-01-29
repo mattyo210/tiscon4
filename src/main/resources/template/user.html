@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
     <title>ご本人情報の入力</title>
 
     <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Exo:900}"/>
@@ -109,7 +110,7 @@
                                 <td>
                                     <p>例：1990/01/01</p>
                                     <div class="field" th:classappend="${errors.hasError('dateOfBirth')} ? 'error'">
-                                        <input type="date" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
+                                        <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
                                         <p th:if="${errors.hasError('dateOfBirth')}"
                                            th:text="${errors.getMessage('dateOfBirth')}" class="error-message">
                                         </p>
@@ -119,33 +120,28 @@
                             <tr>
                                 <td>
                                     <label>郵便番号（半角）</label>
+                                    <label>住所（全角）
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：123-4567</p>
+
                                     <div class="field" th:classappend="${errors.hasError('zipCode')} ? 'error'">
-                                        <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
+                                        <p>例：123-4567</p>
+
+                                        <input type="text" name="zipCode"  onKeyUp="AjaxZip3.zip2addr(this,'','address','address');" th:value="${form.zipCode}"/>
                                         <p th:if="${errors.hasError('zipCode')}"
                                            th:text="${errors.getMessage('zipCode')}" class="error-message">
                                         </p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>ご住所（全角）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
-                                    <p>例：東京都新宿区西新宿８－１７－１</p>
-                                    <div class="field" th:classappend="${errors.hasError('address')} ? 'error'">
+                                        <p>例：東京都新宿区西新宿８－１７－１</p>
                                         <input type="text" name="address" th:value="${form.address}"/>
                                         <p th:if="${errors.hasError('address')}"
                                            th:text="${errors.getMessage('address')}" class="error-message">
                                         </p>
                                     </div>
+
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
                                     <label>自宅電話番号（半角）</label>
@@ -161,9 +157,10 @@
                                     </div>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
-                                    <label>携帯電話番号（半角）</label>
+                                    <label>携帯電話番号（半角）or</label>
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
@@ -293,7 +290,6 @@
                             </tr>
                             </tbody>
                         </table>
-
                         <div class="ui column grid">
                             <div class="eight wide column left aligned">
                                 <!--/*戻る場合、formの送り先を強制的に書き換える*/-->
@@ -305,6 +301,9 @@
                                 <button class="ui teal button angle right icon">次へ（お勤め先情報の入力）</button>
                             </div>
                         </div>
+
+
+
                     </form>
                 </div>
             </div>
