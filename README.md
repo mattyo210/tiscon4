@@ -85,3 +85,5 @@ IntelliJ で Mavenウィンドウ の `Execute Maven Goal` から、以下に記
 
 - [使用している技術](https://github.com/tiscon/tiscon4-startup-guide/blob/master/content/aboutUsingTechnology.md)
 - [H2 Databaseに登録したデータを確認する](https://github.com/tiscon/tiscon4-startup-guide/blob/master/content/h2Database.md)
+共有スライド
+https://docs.google.com/presentation/d/11s_3iyVdz5oZ1e12qzjZS40Nzc-qX7gLSzGtyJjFOuc/edit?usp=sharing
