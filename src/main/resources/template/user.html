@@ -91,9 +91,9 @@
                                 <td>
                                     <div th:each="item : ${genderTypes}" class="field"
                                          th:classappend="${errors.hasError('gender')} ? 'error'">
-                                        <input type="radio" name="gender" th:value="${item.code}"
+                                        <label><input type="radio" name="gender" th:value="${item.code}"
                                                th:text="${item.label}" th:field="*{gender}"
-                                               th:checked="${form.gender}==${item.code}"/>
+                                                      th:checked="${form.gender}==${item.code}"/></label>
 
                                     </div>
                                     <p th:if="${errors.hasError('gender')}" th:text="${errors.getMessage('gender')}"
@@ -160,7 +160,7 @@
 
                             <tr>
                                 <td>
-                                    <label>携帯電話番号（半角）or</label>
+                                    <label>携帯電話番号（半角）</label>
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
@@ -198,9 +198,9 @@
                                 <td>
                                     <div th:each="item : ${marriedTypes}" class="field"
                                          th:classappend="${errors.hasError('married')} ? 'error'">
-                                        <input type="radio" name="married" th:value="${item.code}"
+                                        <label><input type="radio" name="married" th:value="${item.code}"
                                                th:text="${item.label}" th:field="*{married}"
-                                               th:checked="${form.married}==${item.code}"/>
+                                                      th:checked="${form.married}==${item.code}"/></label>
                                     </div>
                                     <p th:if="${errors.hasError('married')}" th:text="${errors.getMessage('married')}"
                                        class="error-message">
@@ -229,8 +229,8 @@
                                 <td>
                                     <div th:each="item : ${jobTypes}" class="field"
                                          th:classappend="${errors.hasError('job')} ? 'error'">
-                                        <input type="radio" name="job" th:value="${item.code}" th:text="${item.label}"
-                                               th:field="*{job}" th:checked="${form.job}==${item.code}"/>
+                                        <label><input type="radio" name="job" th:value="${item.code}" th:text="${item.label}"
+                                                      th:field="*{job}" th:checked="${form.job}==${item.code}"/></label>
                                     </div>
                                     <p th:if="${errors.hasError('job')}" th:text="${errors.getMessage('job')}"
                                        class="error-message">
@@ -262,9 +262,9 @@
                                 <td>
                                     <div th:each="item : ${treatedTypes}" class="field"
                                          th:classappend="${errors.hasError('treatedTypes')} ? 'error'">
-                                        <input type="radio" name="treated" th:value="${item.code}"
+                                        <label><input type="radio" name="treated" th:value="${item.code}"
                                                th:text="${item.label}" th:field="*{treated}"
-                                               th:checked="${form.treated}==${item.code}"/>
+                                                      th:checked="${form.treated}==${item.code}"/></label>
                                     </div>
                                     <p th:if="${errors.hasError('treated')}" th:text="${errors.getMessage('treated')}"
                                        class="error-message">

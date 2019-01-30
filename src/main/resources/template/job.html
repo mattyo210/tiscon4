@@ -104,9 +104,9 @@
                                 <td>
                                     <div th:each="item : ${industryTypes}" class="field"
                                          th:classappend="${errors.hasError('industryType')} ? 'error'">
-                                        <input type="radio" name="industryType" th:value="${item.code}"
+                                        <label><input type="radio" name="industryType" th:value="${item.code}"
                                                th:text="${item.label}" th:field="*{industryType}"
-                                               th:checked="${form.industryType}==${item.code}"/>
+                                                      th:checked="${form.industryType}==${item.code}"/></label>
                                     </div>
                                     <p th:if="${errors.hasError('industryType')}"
                                        th:text="${errors.getMessage('industryType')}" class="error-message">
