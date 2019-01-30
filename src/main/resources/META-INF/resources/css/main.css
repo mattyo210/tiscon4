@@ -178,3 +178,10 @@ td {
     width: 400px;
 }
 
+.ddd{
+  position:fixed;
+  font-weight:600;
+  font-family: Impact,Charcoal;
+  top:10px;
+  right:30px;
+  }
