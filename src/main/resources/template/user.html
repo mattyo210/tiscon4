@@ -145,14 +145,18 @@
                             <tr>
                                 <td>
                                     <label>自宅電話番号（半角）</label>
-                                    <p style="color:red;">＊</p>
+                                    <p style="color:red;">＊自宅または携帯電話番号をご登録ください</p>
                                 </td>
                                 <td>
                                     <p>例：00-1111-2222</p>
-                                    <div class="field" th:classappend="${errors.hasError('homePhoneNumber')} ? 'error'">
+                                    <div class="field"
+                                         th:classappend="|${errors.hasError('homePhoneNumber')?'error': ''} ${errors.hasError('phoneNumber')?'error': ''}|">
                                         <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
                                         <p th:if="${errors.hasError('homePhoneNumber')}"
                                            th:text="${errors.getMessage('homePhoneNumber')}" class="error-message">
+                                        </p>
+                                        <p th:if="${errors.hasError('phoneNumber')}"
+                                           th:text="${errors.getMessage('phoneNumber')}" class="error-message">
                                         </p>
                                     </div>
                                 </td>
@@ -161,16 +165,19 @@
                             <tr>
                                 <td>
                                     <label>携帯電話番号（半角）</label>
-                                    <p style="color:red;">＊</p>
+                                    <p style="color:red;">＊自宅または携帯電話番号をご登録ください</p>
                                 </td>
                                 <td>
                                     <p>例：080-0000-0000</p>
                                     <div class="field"
-                                         th:classappend="${errors.hasError('mobilePhoneNumber')} ? 'error'">
+                                         th:classappend="|${errors.hasError('mobilePhoneNumber')}?'error': ''} ${errors.hasError('phoneNumber')?'error': ''}|">
                                         <input type="text" name="mobilePhoneNumber"
                                                th:value="${form.mobilePhoneNumber}"/>
                                         <p th:if="${errors.hasError('mobilePhoneNumber')}"
                                            th:text="${errors.getMessage('mobilePhoneNumber')}" class="error-message">
+                                        </p>
+                                        <p th:if="${errors.hasError('phoneNumber')}"
+                                           th:text="${errors.getMessage('phoneNumber')}" class="error-message">
                                         </p>
                                     </div>
                                 </td>

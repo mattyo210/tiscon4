@@ -49,12 +49,12 @@ public class UserForm implements Serializable {
     private String address;
 
     /** 自宅電話番号 */
-    @Required
+    //@Required
     @Domain("homePhoneNumber")
     private String homePhoneNumber;
 
     /** 携帯電話番号 */
-    @Required
+    //@Required
     @Domain("mobilePhoneNumber")
     private String mobilePhoneNumber;
 
@@ -217,6 +217,19 @@ public class UserForm implements Serializable {
 
     public void setMedicalHistory(String medicalHistory) {
         this.medicalHistory = medicalHistory;
+    }
+
+    /**
+     * 自宅電話番号または携帯電話番号のどちらかが入力されているか判定する。
+     *
+     * @return 自宅電話番号または携帯電話番号のどちらかに入力がある場合にtrue
+     */
+    @AssertTrue(message = "{tiscon4.order.inputUser.error.hasPhoneNumber}")
+    public boolean hasPhoneNumber() {
+        if (StringUtil.isNullOrEmpty(homePhoneNumber) && StringUtil.isNullOrEmpty(mobilePhoneNumber)) {
+            return false;
+        }
+        return true;
     }
 
     /**
